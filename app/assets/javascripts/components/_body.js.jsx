@@ -4,7 +4,7 @@ var Body = React.createClass({
 	},
 
 	componentDidMount(){
-		$.getJSON('/api/v1/items.json', (response) => { this.setState({ items: response }) });
+		$.getJSON('/api/v1/items.json', response => { this.setState({ items: response }) });
 	},
 
 	handleSubmit(item) {
