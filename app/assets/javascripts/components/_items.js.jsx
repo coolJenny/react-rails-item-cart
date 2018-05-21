@@ -24,10 +24,7 @@ var Item = React.createClass({
 				{name}
 				{description}
 		        <button onClick={this.props.handleDelete}>Delete</button>
-		        <button onClick={this.handleEdit}>
-		        	{" "}
-		        	{this.state.editable ? "Submit" : "Edit"}{" "}
-		        </button>
+		        <button onClick={this.handleEdit}>{this.state.editable ? "Submit" : "Edit"}</button>
 			</div>
 		);
 	}

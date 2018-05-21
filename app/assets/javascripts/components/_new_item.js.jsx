@@ -7,8 +7,8 @@ var NewItem = React.createClass({
 		$.ajax({
 			url: "api/v1/items",
 			type: "POST",
-			data: {item: {name: name, description: description}},
-			success: item => {
+			data: { item: {name: name, description: description} },
+			success: (item) => {
 				this.props.handleSubmit(item);
 			}
 		});
@@ -22,6 +22,6 @@ var NewItem = React.createClass({
 				<input ref='description' placeholder='Enter a description of the item' />
 				<button onClick={this.handleClick}>Create a New Item</button>
 			</div>
-			);
+		)
 	}
 });

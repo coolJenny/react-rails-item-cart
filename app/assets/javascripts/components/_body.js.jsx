@@ -4,7 +4,7 @@ var Body = React.createClass({
 	},
 
 	componentDidMount(){
-		$.getJSON('/api/v1/items.json', response => { this.setState({ items: response }) });
+		$.getJSON('/api/v1/items.json', (response) => { this.setState({ items: response }) });
 	},
 
 	handleSubmit(item) {
@@ -12,9 +12,9 @@ var Body = React.createClass({
         this.setState({items: newState})
     },
 
-    handleDelete(){
+    handleDelete(id){
     	$.ajax({
-    		url: '.api/v1/items/${id}',
+    		url: '/api/v1/items/${id}',
     		type: 'DELETE',
     		success: () => {
     			this.removeItemClient(id);
