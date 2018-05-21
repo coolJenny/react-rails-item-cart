@@ -38,7 +38,7 @@ var Body = React.createClass({
     		success: () => {
     			this.updateItems(item);
     		}
-    	}),
+    	});
     },
 
     updateItems(item){
