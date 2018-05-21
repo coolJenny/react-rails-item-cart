@@ -15,13 +15,17 @@ var AllItems = React.createClass({
 
 	},
 
+	onUpdate(item){
+		this.props.onUpdate(item);
+	},
+
 	render(){
 		var items = this.props.items.map((item) => {
 			return (
 				<div key={item.id}>
 					<Item item={item} 
 							handleDelete={this.handleDelete.bind(this, item.id)}
-							handleEdit={this.handleEdit} />
+							handleUpdate={this.onUpdate} />
 					// <h3>{item.name}</h3>
 					// <p>{item.description}</p>
 					// <button onClick={this.handleEdit()}>Edit</button>
