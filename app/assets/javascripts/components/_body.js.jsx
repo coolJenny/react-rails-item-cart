@@ -1,16 +1,19 @@
-var Body = React.createClass({
+import React from 'react';
+import ReactDom from 'react-dom';
+
+class Body extends React.Component {
 	getInitialState(){
 		return { items: [] }
-	},
+	}
 
 	componentDidMount(){
 		$.getJSON('/api/v1/items.json', (response) => { this.setState({ items: response }) });
-	},
+	}
 
 	handleSubmit(item) {
         var newState = this.state.items.concat(item);
         this.setState({items: newState})
-    },
+    }
 
     handleDelete(id){
     	$.ajax({
@@ -20,7 +23,7 @@ var Body = React.createClass({
     			this.removeItemClient(id);
     		}
     	});
-    },
+    }
 
     removeItemClient(id) {
     	var newItems = this.state.items.filter((item) => {
@@ -28,7 +31,7 @@ var Body = React.createClass({
     	});
 
     	this.setState({items: newItems});
-    },
+    }
 
     handleUpdate(item){
     	$.ajax({
@@ -39,14 +42,14 @@ var Body = React.createClass({
     			this.updateItems(item);
     		}
     	});
-    },
+    }
 
     updateItems(item){
     	var items = this.state.items.filter( (i) => {return i.id != item.id} );
     	items.push(item);
 
     	this.setState({items: items});
-    },
+    }
 
 	render(){
 		return(
@@ -56,4 +59,6 @@ var Body = React.createClass({
 			</div>
 		);
 	}
-});
+}
+
+export default Body;

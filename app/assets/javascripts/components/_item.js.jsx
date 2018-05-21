@@ -1,8 +1,11 @@
-var Item = React.createClass({
+import React from 'react';
+import ReactDom from 'react-dom';
+
+class Item extends React.Component {
 
 	getInitialState(){
 		return {editable: false}
-	},
+	}
 
 	handleEdit(){
 		if(this.state.editable){
@@ -13,7 +16,7 @@ var Item = React.createClass({
 			this.props.handleUpdate(item);
 		}
 		this.setState({editable: !this.state.editable})
-	},
+	}
 
 	render(){
 		var name = this.state.editable ? <input type='text' ref='name' defaultValue={this.props.item.name} /> : <h3>{this.props.item.name}</h3>;
@@ -28,4 +31,6 @@ var Item = React.createClass({
 			</div>
 		);
 	}
-});
+}
+
+export default Item;
