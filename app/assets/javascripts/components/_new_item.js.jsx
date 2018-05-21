@@ -9,7 +9,7 @@ var NewItem = React.createClass({
 			type: "POST",
 			data: {item: {name: name, description: description}},
 			success: response => {
-				console.log("It worked!", response);
+				this.props.handleSubmit(item);
 			}
 		});
 
